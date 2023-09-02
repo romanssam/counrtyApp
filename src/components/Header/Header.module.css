@@ -1,10 +1,12 @@
 .header {
-    box-shadow: var(--shadow);
-    background-color: var(--colors-ui-base);
-
-    padding: 0 2rem;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding: 2rem;
+}
+
+.title {
+    color: var(--colors-text);
+    font-size: var(--fs-md);
 }

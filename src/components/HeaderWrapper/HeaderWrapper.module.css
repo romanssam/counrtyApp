@@ -1,0 +1,6 @@
+.wrapper {
+    box-shadow: var(--shadow);
+    background-color: var(--colors-ui-base);
+
+    padding: 0 2rem;
+}

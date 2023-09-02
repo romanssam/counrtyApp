@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 import Container from "../Container/Container.jsx";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwithcer";
+import HeaderWrapper from "../HeaderWrapper/HeaderWrapper.jsx";
 
 /*const Container = styled.div `
   width: 100%;
@@ -33,15 +34,17 @@ const Switcher = styled.div``*/
      }, [theme])
 
     return (
-        <Container>
-            <header className={styles.header}>
-                <span>Что за страна?</span>
-                <ThemeSwitcher onClick={changeTheme}>
-                    <IoMoon/>
-                    Сменить тему
-                </ThemeSwitcher>
-            </header>
-        </Container>
+        <HeaderWrapper>
+            <Container>
+                <header className={styles.header}>
+                    <span className={styles.title}>Что за страна?</span>
+                    <ThemeSwitcher onClick={changeTheme}>
+                        <IoMoon/>
+                        Сменить тему
+                    </ThemeSwitcher>
+                </header>
+            </Container>
+        </HeaderWrapper>
     );
 };
 
