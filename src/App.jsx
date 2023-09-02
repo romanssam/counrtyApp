@@ -1,9 +1,11 @@
 import './App.css'
+import Header from "./components/Header/Header.jsx";
+
 
 export const App = () => {
   return (
     <>
-      <h1>Initial</h1>
+      <Header/>
     </>
   )
 }
