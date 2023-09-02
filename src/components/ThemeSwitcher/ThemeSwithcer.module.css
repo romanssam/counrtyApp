@@ -1,0 +1,13 @@
+.switcher {
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    cursor: pointer;
+
+    color: var(--colors-text);
+}

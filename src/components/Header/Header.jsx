@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import styles from './Header.module.css'
 import styled from 'styled-components';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 import Container from "../Container/Container.jsx";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwithcer";
 
 /*const Container = styled.div `
   width: 100%;
@@ -20,9 +22,25 @@ const Title = styled.a.attrs({
 
 const Switcher = styled.div``*/
  const Header = () => {
+     const [theme, setTheme] = useState('light');
+
+     const changeTheme = () => {
+         setTheme(theme === 'light' ? 'dark' : 'light');
+     }
+
+     useEffect(() => {
+         document.body.setAttribute('data-theme', theme);
+     }, [theme])
+
     return (
         <Container>
-            <span>Что за страна?</span>
+            <header className={styles.header}>
+                <span>Что за страна?</span>
+                <ThemeSwitcher onClick={changeTheme}>
+                    <IoMoon/>
+                    Сменить тему
+                </ThemeSwitcher>
+            </header>
         </Container>
     );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './ThemeSwithcer.module.css'
 
-const ThemeSwitcher = ({children}) => {
+const ThemeSwitcher = ({children, onClick}) => {
     return (
-        <div>
-
-        </div>
+        <button className={styles.switcher} onClick={onClick}>
+            {children}
+        </button>
     );
 };
 
