@@ -1,32 +1,31 @@
 import React, {useState, useEffect} from 'react';
 import styles from './Header.module.css'
-import styled from 'styled-components';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 import Container from "../Container/Container.jsx";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwithcer";
 import HeaderWrapper from "../HeaderWrapper/HeaderWrapper.jsx";
 
-/*const Container = styled.div `
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 2rem;
-`
+const ThemeIcon = ({state}) => {
+    return (
+        <>
+            {state === 'light' ? (
+                <IoMoonOutline/>
+            ) : (
+                <IoMoon/>
+            )}
+        </>
+    )
+}
 
-const HeaderInst = styled.header``;
-
-const Wrapper = styled.div``;
-
-const Title = styled.a.attrs({
-    href: '/'
-});
-
-const Switcher = styled.div``*/
  const Header = () => {
      const [theme, setTheme] = useState('light');
 
      const changeTheme = () => {
          setTheme(theme === 'light' ? 'dark' : 'light');
+     }
+
+     const currentTheme = () => {
+         return theme === "light" ? "светлую" : "темную"
      }
 
      useEffect(() => {
@@ -38,8 +37,8 @@ const Switcher = styled.div``*/
             <Container>
                 <header className={styles.header}>
                     <span className={styles.title}>Что за страна?</span>
-                    <ThemeSwitcher onClick={changeTheme}>
-                        <IoMoon/>
+                    <ThemeSwitcher onClick={changeTheme} title={`Сменить на ${currentTheme()} тему`}>
+                        <ThemeIcon state={theme} />
                         Сменить тему
                     </ThemeSwitcher>
                 </header>
