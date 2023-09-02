@@ -18,10 +18,24 @@ const ThemeIcon = ({state}) => {
 }
 
  const Header = () => {
-     const [theme, setTheme] = useState('light');
+     const [theme, setTheme] = useState(() => {
+         const initialTheme = localStorage.getItem('theme');
+         return initialTheme ? initialTheme : 'light';
+     });
+
+     const getTheme = () => {
+         const savedTheme = localStorage.getItem('theme');
+         if (savedTheme) {
+             setTheme(savedTheme);
+         }
+     }
 
      const changeTheme = () => {
-         setTheme(theme === 'light' ? 'dark' : 'light');
+         setTheme((prevTheme => {
+             const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+             localStorage.setItem('theme', newTheme);
+             return newTheme;
+         }))
      }
 
      const currentTheme = () => {
