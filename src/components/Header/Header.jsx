@@ -23,13 +23,6 @@ const ThemeIcon = ({state}) => {
          return initialTheme ? initialTheme : 'light';
      });
 
-     const getTheme = () => {
-         const savedTheme = localStorage.getItem('theme');
-         if (savedTheme) {
-             setTheme(savedTheme);
-         }
-     }
-
      const changeTheme = () => {
          setTheme((prevTheme => {
              const newTheme = prevTheme === 'light' ? 'dark' : 'light';
