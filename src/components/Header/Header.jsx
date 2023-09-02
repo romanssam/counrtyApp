@@ -17,6 +17,12 @@ const ThemeIcon = ({state}) => {
     )
 }
 
+const Title = ({text}) => {
+    return (
+        <span className={styles.title}>{text}</span>
+    )
+}
+
  const Header = () => {
      const [theme, setTheme] = useState(() => {
          const initialTheme = localStorage.getItem('theme');
@@ -43,7 +49,7 @@ const ThemeIcon = ({state}) => {
         <HeaderWrapper>
             <Container>
                 <header className={styles.header}>
-                    <span className={styles.title}>Что за страна?</span>
+                    <Title text='Что за страна?' />
                     <ThemeSwitcher onClick={changeTheme} title={`Сменить на ${currentTheme()} тему`}>
                         <ThemeIcon state={theme} />
                         Сменить тему
