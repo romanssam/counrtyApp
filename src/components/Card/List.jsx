@@ -8,7 +8,8 @@ const Wrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  & > div {
+  flex-wrap: wrap;
+  & > article {
     flex: 1 1 33%;
   }
 `
