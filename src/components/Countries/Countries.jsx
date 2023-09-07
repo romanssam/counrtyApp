@@ -4,8 +4,11 @@ import List from '../Card/List.jsx'
 import Card from '../Card/Card.jsx'
 import SkeletonLoader from '../SkeletonLoader/SkeletonLoader.jsx'
 import { ALL_COUNTRIES } from '../../config.js';
+import { useNavigate } from 'react-router-dom'
 
 const Countries = () => {
+    const navigate = useNavigate();
+
     const [country, setCountry] = useState([]);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -50,7 +53,7 @@ const Countries = () => {
                         ]
                     }
                     return (
-                        <Card key={c.name} {...info} />
+                        <Card key={c.name} onClick={() => navigate(`/country/${c.name}`)}  {...info} />
                     )
                 })}
             </List>

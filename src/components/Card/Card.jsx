@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Wrapper = styled.article`
   border-radius: var(--border-radius);
   background-color: var(--colors-ui-base);
+  cursor: pointer;
 `;
 
 const CardImage = styled.img`
