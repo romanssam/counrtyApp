@@ -9,8 +9,9 @@ const Wrapper = styled.section`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 1rem;
   & > article {
-    flex: 1 1 33%;
+    flex: 1 1 23%;
   }
 `
 
