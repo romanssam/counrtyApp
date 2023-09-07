@@ -2,24 +2,31 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import List from '../Card/List.jsx'
 import Card from '../Card/Card.jsx'
+import SkeletonLoader from '../SkeletonLoader/SkeletonLoader.jsx'
 import { ALL_COUNTRIES } from '../../config.js';
 
 const Countries = () => {
     const [country, setCountry] = useState([]);
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const getCountries = async () => {
             try {
                 const {data} = await axios.get(ALL_COUNTRIES);
                 setCountry(data);
+                setLoading(false)
             } catch (e) {
                 setError(true)
+                setLoading(false)
                 console.error('failed to fetch countries ' + e)
             }
         }
         getCountries();
     }, [])
+
+    if (loading) return <SkeletonLoader/>
+
     return (
         <>
             <List>
